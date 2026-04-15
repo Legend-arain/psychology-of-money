@@ -1,0 +1,509 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Psychology of Money - Master Your Financial Mindset</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: #ffffff;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 3rem;
+        }
+
+        .nav-link {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: #667eea;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="%23667eea" stop-opacity="0.1"/><stop offset="100%" stop-color="%23764ba2" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"><animate attributeName="r" values="100;150;100" dur="8s" repeatCount="indefinite"/></circle><circle cx="800" cy="300" r="80" fill="url(%23a)"><animate attributeName="r" values="80;120;80" dur="10s" repeatCount="indefinite"/></circle></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .hero-content {
+            max-width: 900px;
+            padding: 0 2rem;
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #ffffff 0%, #667eea 50%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Sections */
+        .section {
+            padding: 120px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff 0%, #667eea 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Topics Section */
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .topic-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .topic-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .topic-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .topic-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .topic-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .topic-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .topic-card p {
+            opacity: 0.8;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        /* About Section */
+        .about {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 24px;
+            padding: 4rem;
+            margin: 4rem 0;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .about p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.9;
+            font-weight: 300;
+        }
+
+        /* Contact Section */
+        .contact {
+            text-align: center;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .contact-item {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            padding: 3rem 2rem;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .contact-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .contact-link {
+            color: #667eea;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                gap: 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .topics-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .section {
+                padding: 80px 5%;
+            }
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Navbar scroll effect */
+        .navbar.scrolled {
+            padding: 1rem 5%;
+            background: rgba(15, 15, 35, 0.98);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">PSYCH$</div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#introduction" class="nav-link">Introduction</a></li>
+                <li><a href="#topics" class="nav-link">Topics</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content fade-in">
+            <h1>The Psychology of Money</h1>
+            <p>Timeless lessons on wealth, greed, and happiness. Understanding how we think about money is more important than knowing how to make it.</p>
+            <a href="#topics" class="cta-button">Explore Key Lessons</a>
+        </div>
+    </section>
+
+    <!-- Topics Section -->
+    <section id="topics" class="section">
+        <h2 class="section-title fade-in">Core Lessons</h2>
+        <div class="topics-grid">
+            <div class="topic-card fade-in">
+                <div class="topic-icon"><i class="fas fa-piggy-bank"></i></div>
+                <h3>No One's Crazy</h3>
+                <p>Your personal experiences with money make you unique. What seems irrational to others might be perfectly logical given your history. The key is recognizing that everyone's financial behavior stems from their own unique journey.</p>
+            </div>
+
+            <div class="topic-card fade-in">
+                <div class="topic-icon"><i class="fas fa-brain"></i></div>
+                <h3>Luck & Risk</h3>
+                <p>Every outcome in life is guided by luck and risk. What we can't see is often more important than what we can. Success requires both skill and luck, while failure often involves risk we didn't anticipate.</p>
+            </div>
+
+            <div class="topic-card fade-in">
+                <div class="topic-icon"><i class="fas fa-clock"></i></div>
+                <h3>Never Enough</h3>
+                <p>Greed is a powerful force. The danger of more is that we forget what enough feels like. True wealth comes from knowing when you have enough, not from endless accumulation.</p>
+            </div>
+
+            <div class="topic-card fade-in">
+                <div class="topic-icon"><i class="fas fa-seedling"></i></div>
+                <h3>Confounding Compounding</h3>
+                <p>Good investing isn't about earning the highest returns. It's about earning pretty good returns that you can stick with consistently. The magic of compounding works best with patience.</p>
+            </div>
+
+            <div class="topic-card fade-in">
+                <div class="topic-icon"><i class="fas fa-mountain"></i></div>
+                <h3>Getting Wealthy vs Staying Wealthy</h3>
+                <p>Building wealth requires optimism and risk-taking. Maintaining wealth requires humility and fear. Survival is the ultimate financial metric—everything else is secondary.</p>
+            </div>
+
+            <div class="topic-card fade-in">
+                <div class="topic-icon"><i class="fas fa-treasure-chest"></i></div>
+                <h3>Tails Drive Everything</h3>
+                <p>Most of what happens comes from a tiny percentage of occurrences. Financial success is heavily skewed—a few big wins drive most results. Focus on positioning yourself for the rare but powerful outcomes.</p>
+            </div>
+
+            <div class="topic-card fade-in">
+                <div class="topic-icon"><i class="fas fa-freedom-bird"></i></div>
+                <h3>Freedom</h3>
+                <p>Controlling your time is the highest dividend money pays. Wealth creates freedom—freedom to spend time as you wish. True financial independence means owning your time completely.</p>
+            </div>
+
+            <div class="topic-card fade-in">
+                <div class="topic-icon"><i class="fas fa-mantra"></i></div>
+                <h3>Man in the Car Paradox</h3>
+                <p>Buying expensive things signals value to others, but the joy fades quickly. The things we buy to impress others rarely deliver lasting happiness. True satisfaction comes from internal measures.</p>
+            </div>
+
+            <div class="topic-card fade-in">
+                <div class="topic-icon"><i class="fas fa-balance-scale"></i></div>
+                <h3>Wealth is What You Don't See</h3>
+                <p>Spending money to show people how much money you have is the fastest way to have less money. Real wealth is invisible—it's the money you haven't spent yet.</p>
+            </div>
+
+            <div class="topic-card fade-in">
+                <div class="topic-icon"><i class="fas fa-gamepad"></i></div>
+                <h3>Save Money</h3>
+                <p>Saving is a gap between your ego and your income. No matter how much you make, you can build wealth if you can save. Savings rate is more important than your salary.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section">
+        <div class="about fade-in">
+            <p><strong>Your relationship with money shapes your future.</strong> Success isn't about complex strategies or secret formulas—it's about mastering your mindset. The Psychology of Money reveals that financial freedom comes from understanding behavior, not just numbers. Cultivate patience, embrace humility, and let compounding work its magic. Your habits today determine your wealth tomorrow.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <h2 class="section-title fade-in">Get In Touch</h2>
+        <div class="contact-info">
+            <div class="contact-item fade-in">
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h3>Email</h3>
+                <a href="mailto:salmanarain615@gmail.com" class="contact-link">salmanarain615@gmail.com</a>
+            </div>
+            <div class="contact-item fade-in">
+                <div class="contact-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <h3>WhatsApp</h3>
+                <a href="https://wa.me/923430103604" class="contact-link">03430103604</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for navigation links// Smooth scrolling for navigation links
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        target.scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+// Navbar scroll effect
+window.addEventListener('scroll', () => {
+    const navbar = document.getElementById('navbar');
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
+
+// Fade-in animation on scroll
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+});
+
+document.querySelectorAll('.fade-in').forEach(el => {
+    observer.observe(el);
+});
+</script>
+
+</body>
+</html>
